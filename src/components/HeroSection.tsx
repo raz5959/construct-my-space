@@ -11,11 +11,6 @@ const fadeUp = (delay: number) => ({
 const HeroSection = () => {
   return (
     <section className="px-5 pt-7 pb-6 text-center">
-      {/* Badge */}
-      <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 px-3 py-1 bg-success/[0.06] border border-success/[0.18] rounded-full text-[11px] font-semibold text-success mb-4">
-        <span className="w-1.5 h-1.5 bg-success rounded-full blink-dot" />
-        שיעור חדש בחינם — לזמן מוגבל
-      </motion.div>
 
       {/* Title */}
       <motion.h1 {...fadeUp(0.25)} className="font-heading font-black leading-tight mb-3 text-xl">
