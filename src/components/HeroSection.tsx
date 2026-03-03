@@ -33,7 +33,7 @@ const HeroSection = () => {
       </div>
 
       {/* Description */}
-      <p className="text-sm text-muted-foreground leading-7">
+      <p className="text-sm text-muted-foreground leading-7 text-center">
         בהדרכה תגלה איך מסחר יומי עובד באמת — איך לזהות הזדמנויות בזמן אמת, לנהל סיכון בצורה חכמה, ולבנות מיומנות שיכולה להפוך למקור רווח נוסף.
       </p>
     </section>
