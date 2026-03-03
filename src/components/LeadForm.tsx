@@ -6,7 +6,7 @@ import { toast } from "@/hooks/use-toast";
 const LeadForm = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [age, setAge] = useState("");
+  
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,7 +26,7 @@ const LeadForm = () => {
     const { error } = await supabase.from("leads").insert({
       name: name.trim(),
       phone: phone.trim(),
-      age: age || null,
+      
       email: email.trim() || null,
     });
     setIsSubmitting(false);
@@ -98,8 +98,7 @@ const LeadForm = () => {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
-            <div>
+          <div>
               <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">טלפון</label>
               <input
                 type="tel"
@@ -109,21 +108,6 @@ const LeadForm = () => {
                 onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
               />
-            </div>
-            <div>
-              <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">גיל</label>
-              <select
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
-              >
-                <option value="" className="bg-card">בחרו</option>
-                <option value="18-25" className="bg-card">18-25</option>
-                <option value="26-35" className="bg-card">26-35</option>
-                <option value="36-45" className="bg-card">36-45</option>
-                <option value="46+" className="bg-card">46+</option>
-              </select>
-            </div>
           </div>
 
           <div>
