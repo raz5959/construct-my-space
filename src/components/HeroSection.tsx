@@ -8,9 +8,9 @@ const HeroSection = () => {
       </div>
 
       {/* Title */}
-      <h1 className="font-heading text-[26px] font-black leading-tight mb-3">
-        בזמן שאחרים מחכים שהשוק יעלה
-        <br />
+      <h1 className="font-heading font-black leading-tight mb-3 text-xl">בזמן שאחרים מחכים שהשוק יעלה
+יש אנשים שמייצרים כסף בכל יום
+ממסחר יומי!<br />
         יש אנשים שמייצרים <span className="gold-gradient-text">כסף בכל יום</span>
         <br />
         ממסחר יומי!
@@ -36,8 +36,8 @@ const HeroSection = () => {
       <p className="text-sm text-muted-foreground leading-7 text-center">
         בהדרכה תגלה איך מסחר יומי עובד באמת — איך לזהות הזדמנויות בזמן אמת, לנהל סיכון בצורה חכמה, ולבנות מיומנות שיכולה להפוך למקור רווח נוסף.
       </p>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
