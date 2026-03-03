@@ -12,9 +12,6 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <LeadForm />
-      <VideoSection />
-      <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
