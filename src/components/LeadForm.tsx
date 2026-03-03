@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const LeadForm = () => {
   const [name, setName] = useState("");
@@ -8,7 +9,12 @@ const LeadForm = () => {
   const [agreed, setAgreed] = useState(true);
 
   return (
-    <section className="mx-5 mb-7">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" }}
+      className="mx-5 mb-7"
+    >
       <div className="bg-card border border-primary/10 rounded-2xl p-5 relative overflow-hidden">
         {/* Gold top bar */}
         <div className="absolute top-0 right-0 left-0 h-[3px] gold-gradient-bg" />
@@ -104,7 +110,7 @@ const LeadForm = () => {
           🔥 מוגבל ל-200 הנרשמים הראשונים
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
