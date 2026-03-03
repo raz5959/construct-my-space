@@ -73,10 +73,6 @@ const LeadForm = () => {
 
         {/* Header */}
         <div className="text-center mb-5 relative">
-          <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-3">
-            <span className="w-2 h-2 rounded-full bg-success blink-dot" />
-            <span className="text-[10px] font-semibold text-primary">200 מקומות נותרו</span>
-          </div>
           <h3 className="font-heading text-xl font-black mb-1.5 gold-gradient-text">
             קבלו גישה לשיעור בחינם
           </h3>
