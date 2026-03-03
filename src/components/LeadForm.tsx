@@ -147,10 +147,6 @@ const LeadForm = () => {
           <span className="w-px h-3 bg-border" />
           <span>💬 נשלח לוואטסאפ</span>
         </div>
-        
-        <p className="text-center mt-2.5 text-[11px] text-destructive font-bold">
-          🔥 מוגבל ל-200 הנרשמים הראשונים
-        </p>
       </div>
     </motion.section>
   );
