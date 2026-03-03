@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const LeadForm = () => {
   const [name, setName] = useState("");
@@ -7,6 +9,52 @@ const LeadForm = () => {
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!name.trim() || !phone.trim()) {
+      toast({ title: "שגיאה", description: "נא למלא שם וטלפון", variant: "destructive" });
+      return;
+    }
+    if (!agreed) {
+      toast({ title: "שגיאה", description: "נא לאשר את תנאי השירות", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitting(true);
+    const { error } = await supabase.from("leads").insert({
+      name: name.trim(),
+      phone: phone.trim(),
+      age: age || null,
+      email: email.trim() || null,
+    });
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({ title: "שגיאה", description: "משהו השתבש, נסו שוב", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitted(true);
+    toast({ title: "נשלח בהצלחה! 🎉", description: "ההדרכה תישלח אליכם בקרוב" });
+  };
+
+  if (isSubmitted) {
+    return (
+      <motion.section
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="mx-5 mb-7"
+      >
+        <div className="bg-card border-2 border-primary/20 rounded-2xl p-8 text-center shadow-[0_0_40px_-10px_hsl(210_90%_55%/0.3)]">
+          <div className="text-5xl mb-4">🎉</div>
+          <h3 className="font-heading text-xl font-black mb-2 gold-gradient-text">תודה שנרשמתם!</h3>
+          <p className="text-sm text-muted-foreground">ההדרכה תישלח אליכם בקרוב</p>
+        </div>
+      </motion.section>
+    );
+  }
 
   return (
     <motion.section
@@ -106,8 +154,12 @@ const LeadForm = () => {
         </div>
 
         {/* Submit button */}
-        <button className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide">
-          שלחו לי את ההדרכה בחינם!
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide disabled:opacity-60"
+        >
+          {isSubmitting ? "שולח..." : "שלחו לי את ההדרכה בחינם!"}
         </button>
 
         <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-muted-foreground">
