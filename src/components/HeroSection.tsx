@@ -26,6 +26,16 @@ const HeroSection = () => {
         השאלה היא באיזה צד אתה?
       </motion.p>
 
+      {/* Free class box */}
+      <motion.div {...fadeUp(0.55)} className="bg-card border border-primary/10 rounded-xl p-4 mb-5 text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 left-0 h-[3px] gold-gradient-bg" />
+        <p className="font-heading font-extrabold text-base text-foreground mb-1">
+          ההדרכה בחינם לחלוטין
+        </p>
+        <p className="text-xs text-destructive font-semibold">
+          🔥 מוגבל ל-200 איש הראשונים
+        </p>
+      </motion.div>
 
       {/* Description */}
       <motion.p {...fadeUp(0.7)} className="text-sm text-muted-foreground leading-7 text-center">
