@@ -90,7 +90,7 @@ const LeadForm = () => {
               placeholder="איך קוראים לכם?"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+              className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
             />
           </div>
 
@@ -102,7 +102,7 @@ const LeadForm = () => {
                 dir="ltr"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+                className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
               />
           </div>
 
@@ -114,7 +114,7 @@ const LeadForm = () => {
               dir="ltr"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+              className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
             />
           </div>
         </div>
