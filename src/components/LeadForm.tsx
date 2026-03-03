@@ -74,7 +74,7 @@ const LeadForm = () => {
         {/* Header */}
         <div className="text-center mb-5 relative">
           <h3 className="font-heading text-xl font-black mb-1.5 gold-gradient-text">
-            קבלו גישה לשיעור בחינם
+            קבלו גישה להדרכה בחינם!
           </h3>
           <p className="text-xs text-muted-foreground">
             השאירו פרטים וההדרכה תישלח מיד
