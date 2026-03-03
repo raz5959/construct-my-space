@@ -154,8 +154,12 @@ const LeadForm = () => {
         </div>
 
         {/* Submit button */}
-        <button className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide">
-          שלחו לי את ההדרכה בחינם!
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide disabled:opacity-60"
+        >
+          {isSubmitting ? "שולח..." : "שלחו לי את ההדרכה בחינם!"}
         </button>
 
         <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-muted-foreground">
