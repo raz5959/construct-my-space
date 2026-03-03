@@ -32,8 +32,8 @@ const HeroSection = () => {
         <p className="font-heading font-extrabold text-base mb-1 text-success">
           ההדרכה בחינם לחלוטין
         </p>
-        <p className="text-xs text-destructive font-semibold">
-          🔥 מוגבל ל-200 איש הראשונים
+        <p className="text-xs text-destructive font-semibold"> מוגבל ל-200 איש הראשונים 🔥
+
         </p>
       </motion.div>
 
