@@ -10,11 +10,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background max-w-md mx-auto relative">
       <Navbar />
-      <div className="text-center py-2 gold-gradient-bg">
-        <p className="text-[11px] font-bold text-primary-foreground tracking-wide">
-          🔥 מוגבל ל-200 הנרשמים הראשונים
-        </p>
-      </div>
       <HeroSection />
       <LeadForm />
       <VideoSection />
