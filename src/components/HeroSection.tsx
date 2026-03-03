@@ -8,9 +8,9 @@ const HeroSection = () => {
       </div>
 
       {/* Title */}
-      <h1 className="font-heading font-black leading-tight mb-3 text-xl">בזמן שאחרים מחכים שהשוק יעלה
-יש אנשים שמייצרים כסף בכל יום
-ממסחר יומי!<br />
+      <h1 className="font-heading font-black leading-tight mb-3 text-xl">
+        בזמן שאחרים מחכים שהשוק יעלה
+        <br />
         יש אנשים שמייצרים <span className="gold-gradient-text">כסף בכל יום</span>
         <br />
         ממסחר יומי!
