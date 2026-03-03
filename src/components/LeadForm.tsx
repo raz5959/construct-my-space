@@ -15,14 +15,22 @@ const LeadForm = () => {
       transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" }}
       className="mx-5 mb-7"
     >
-      <div className="bg-card border border-primary/10 rounded-2xl p-5 relative overflow-hidden">
-        {/* Gold top bar */}
-        <div className="absolute top-0 right-0 left-0 h-[3px] gold-gradient-bg" />
+      <div className="bg-card border-2 border-primary/20 rounded-2xl p-6 relative overflow-hidden shadow-[0_0_40px_-10px_hsl(210_90%_55%/0.3)]">
+        {/* Gradient top bar */}
+        <div className="absolute top-0 right-0 left-0 h-1 gold-gradient-bg" />
+        
+        {/* Corner glow accents */}
+        <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
 
         {/* Header */}
-        <div className="text-center mb-4">
-          <h3 className="font-heading text-[17px] font-extrabold mb-1">
-            🎯 קבלו גישה לשיעור בחינם
+        <div className="text-center mb-5 relative">
+          <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-3">
+            <span className="w-2 h-2 rounded-full bg-success blink-dot" />
+            <span className="text-[10px] font-semibold text-primary">200 מקומות נותרו</span>
+          </div>
+          <h3 className="font-heading text-xl font-black mb-1.5 gold-gradient-text">
+            קבלו גישה לשיעור בחינם
           </h3>
           <p className="text-xs text-muted-foreground">
             השאירו פרטים וההדרכה תישלח מיד
@@ -30,59 +38,61 @@ const LeadForm = () => {
         </div>
 
         {/* Fields */}
-        <div className="mb-2.5">
-          <label className="block text-[10px] font-medium text-muted mb-1">שם מלא</label>
-          <input
-            type="text"
-            placeholder="איך קוראים לכם?"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2.5 bg-foreground/[0.03] border border-foreground/[0.08] rounded-lg text-foreground text-sm placeholder:text-muted font-body"
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-2 mb-2.5">
+        <div className="space-y-3 relative">
           <div>
-            <label className="block text-[10px] font-medium text-muted mb-1">טלפון</label>
+            <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">שם מלא</label>
             <input
-              type="tel"
-              placeholder="050-000-0000"
-              dir="ltr"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2.5 bg-foreground/[0.03] border border-foreground/[0.08] rounded-lg text-foreground text-sm placeholder:text-muted font-body"
+              type="text"
+              placeholder="איך קוראים לכם?"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
             />
           </div>
-          <div>
-            <label className="block text-[10px] font-medium text-muted mb-1">גיל</label>
-            <select
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              className="w-full px-3 py-2.5 bg-foreground/[0.03] border border-foreground/[0.08] rounded-lg text-foreground text-sm font-body"
-            >
-              <option value="" className="bg-card">בחרו</option>
-              <option value="18-25" className="bg-card">18-25</option>
-              <option value="26-35" className="bg-card">26-35</option>
-              <option value="36-45" className="bg-card">36-45</option>
-              <option value="46+" className="bg-card">46+</option>
-            </select>
-          </div>
-        </div>
 
-        <div className="mb-2.5">
-          <label className="block text-[10px] font-medium text-muted mb-1">אימייל</label>
-          <input
-            type="email"
-            placeholder="your@email.com"
-            dir="ltr"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2.5 bg-foreground/[0.03] border border-foreground/[0.08] rounded-lg text-foreground text-sm placeholder:text-muted font-body"
-          />
+          <div className="grid grid-cols-2 gap-2.5">
+            <div>
+              <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">טלפון</label>
+              <input
+                type="tel"
+                placeholder="050-000-0000"
+                dir="ltr"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">גיל</label>
+              <select
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+              >
+                <option value="" className="bg-card">בחרו</option>
+                <option value="18-25" className="bg-card">18-25</option>
+                <option value="26-35" className="bg-card">26-35</option>
+                <option value="36-45" className="bg-card">36-45</option>
+                <option value="46+" className="bg-card">46+</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">אימייל</label>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              dir="ltr"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 bg-secondary/50 border border-primary/10 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+            />
+          </div>
         </div>
 
         {/* Checkbox */}
-        <div className="flex items-start gap-1.5 my-2.5 text-[10px] text-muted leading-relaxed">
+        <div className="flex items-start gap-2 my-3.5 text-[10px] text-muted-foreground leading-relaxed">
           <input
             type="checkbox"
             checked={agreed}
@@ -96,17 +106,17 @@ const LeadForm = () => {
         </div>
 
         {/* Submit button */}
-        <button className="shimmer w-full py-3.5 bg-success rounded-xl font-heading text-base font-extrabold text-success-foreground mt-1">
+        <button className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide">
           שלחו לי את ההדרכה בחינם!
         </button>
 
-        <p className="text-center mt-2.5 text-[10px] text-muted">
-          🔒 הפרטים שלכם מאובטחים
-        </p>
-        <div className="flex items-center justify-center gap-1 mt-1.5 text-[10px] text-success font-semibold">
-          💬 ההדרכה תישלח גם לוואטסאפ
+        <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-muted-foreground">
+          <span>🔒 מאובטח</span>
+          <span className="w-px h-3 bg-border" />
+          <span>💬 נשלח לוואטסאפ</span>
         </div>
-        <p className="text-center mt-2.5 text-[11px] text-destructive font-semibold">
+        
+        <p className="text-center mt-2.5 text-[11px] text-destructive font-bold">
           🔥 מוגבל ל-200 הנרשמים הראשונים
         </p>
       </div>
