@@ -58,20 +58,24 @@ serve(async (req) => {
       // New subscriber created
       subscriberId = String(createData.data.id);
     } else {
-      // Subscriber already exists — try getInfoByPhone
-      const phoneWithout = formattedPhone.replace('+', '');
-      const infoRes = await fetch(
-        `https://api.manychat.com/fb/subscriber/getInfoByPhone?phone=${encodeURIComponent(formattedPhone)}`,
+      // Subscriber already exists — find by phone system field
+      const findRes = await fetch(
+        `https://api.manychat.com/fb/subscriber/findBySystemField?field=phone&value=${encodeURIComponent(formattedPhone)}`,
         { headers }
       );
-      const infoText = await infoRes.text();
-      console.log('getInfoByPhone response:', infoRes.status, infoText.substring(0, 300));
+      const findText = await findRes.text();
+      console.log('findBySystemField response:', findRes.status, findText.substring(0, 500));
       
       try {
-        const infoData = JSON.parse(infoText);
-        subscriberId = infoData?.data?.id ? String(infoData.data.id) : null;
+        const findData = JSON.parse(findText);
+        // findBySystemField returns an array
+        if (Array.isArray(findData?.data) && findData.data.length > 0) {
+          subscriberId = String(findData.data[0].id);
+        } else if (findData?.data?.id) {
+          subscriberId = String(findData.data.id);
+        }
       } catch {
-        console.error('getInfoByPhone parse failed');
+        console.error('findBySystemField parse failed');
       }
     }
 
