@@ -12,6 +12,24 @@ const LeadForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const sendToManyChat = async (name: string, phone: string) => {
+    try {
+      await fetch("https://api.manychat.com/fb/subscriber/createSubscriberByPhone", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 3889964:f95459aa0adbb148d48a93f2fd9ec31e"
+        },
+        body: JSON.stringify({
+          phone: phone.startsWith("+") ? phone : `+972${phone}`,
+          first_name: name
+        })
+      });
+    } catch (error) {
+      console.error("ManyChat error:", error);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!name.trim() || !phone.trim()) {
       toast({ title: "שגיאה", description: "נא למלא שם וטלפון", variant: "destructive" });
@@ -23,6 +41,7 @@ const LeadForm = () => {
     }
 
     setIsSubmitting(true);
+    await sendToManyChat(name.trim(), phone.trim());
     const { error } = await supabase.from("leads").insert({
       name: name.trim(),
       phone: phone.trim(),
