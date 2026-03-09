@@ -37,6 +37,7 @@ serve(async (req) => {
       headers,
       body: JSON.stringify({
         whatsapp_phone: formattedPhone,
+        phone: formattedPhone,
         first_name: name,
         consent: { whatsapp: "opt_in" },
       }),
