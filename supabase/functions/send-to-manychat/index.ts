@@ -18,11 +18,11 @@ serve(async (req) => {
 
     const { name, phone } = await req.json();
     // Remove leading 0 and add +972 for Israeli numbers
-    let formattedPhone = phone;
+    let formattedPhone = phone.replace(/[-\s]/g, '');
     if (formattedPhone.startsWith('0')) {
-      formattedPhone = '+972' + formattedPhone.substring(1);
-    } else if (!formattedPhone.startsWith('+')) {
-      formattedPhone = '+972' + formattedPhone;
+      formattedPhone = '972' + formattedPhone.substring(1);
+    } else if (formattedPhone.startsWith('+')) {
+      formattedPhone = formattedPhone.substring(1);
     }
 
     const response = await fetch('https://api.manychat.com/fb/subscriber/createSubscriber', {
