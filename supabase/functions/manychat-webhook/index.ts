@@ -18,7 +18,7 @@ serve(async (req) => {
 
     const { name, phone } = await req.json();
 
-    // Format phone: remove dashes/spaces, remove leading 0, add +972
+    // Format phone: remove dashes/spaces, remove leading 0, add country code
     let formattedPhone = phone.replace(/[-\s]/g, '');
     if (formattedPhone.startsWith('0')) {
       formattedPhone = '+972' + formattedPhone.substring(1);
@@ -26,36 +26,78 @@ serve(async (req) => {
       formattedPhone = '+972' + formattedPhone;
     }
 
-    const response = await fetch('https://api.manychat.com/fb/subscriber/createSubscriber', {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${MANYCHAT_API_KEY}`,
+    };
+
+    // Step 1: Create subscriber (or get "already exists")
+    const createRes = await fetch('https://api.manychat.com/fb/subscriber/createSubscriber', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${MANYCHAT_API_KEY}`,
-      },
+      headers,
       body: JSON.stringify({
         whatsapp_phone: formattedPhone,
+        phone: formattedPhone,
         first_name: name,
         consent: { whatsapp: "opt_in" },
       }),
     });
 
-    const responseText = await response.text();
-    let data;
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      throw new Error(`ManyChat returned non-JSON [${response.status}]: ${responseText.substring(0, 200)}`);
+    const createText = await createRes.text();
+    let createData;
+    try { createData = JSON.parse(createText); } catch {
+      throw new Error(`ManyChat non-JSON [${createRes.status}]: ${createText.substring(0, 200)}`);
     }
 
-    // Treat "already exists" as success
-    if (!response.ok) {
-      const msg = JSON.stringify(data);
-      if (!msg.includes('already exists')) {
-        throw new Error(`ManyChat API error [${response.status}]: ${msg}`);
+    console.log('createSubscriber response:', createRes.status, JSON.stringify(createData));
+
+    // Step 2: Get subscriber_id
+    let subscriberId: string | null = null;
+
+    if (createRes.ok && createData?.data?.id) {
+      // New subscriber created
+      subscriberId = String(createData.data.id);
+    } else {
+      // Subscriber already exists — find by phone system field
+      const findRes = await fetch(
+        `https://api.manychat.com/fb/subscriber/findBySystemField?field=phone&value=${encodeURIComponent(formattedPhone)}`,
+        { headers }
+      );
+      const findText = await findRes.text();
+      console.log('findBySystemField response:', findRes.status, findText.substring(0, 500));
+      
+      try {
+        const findData = JSON.parse(findText);
+        // findBySystemField returns an array
+        if (Array.isArray(findData?.data) && findData.data.length > 0) {
+          subscriberId = String(findData.data[0].id);
+        } else if (findData?.data?.id) {
+          subscriberId = String(findData.data.id);
+        }
+      } catch {
+        console.error('findBySystemField parse failed');
       }
     }
 
-    return new Response(JSON.stringify({ success: true, data }), {
+    console.log('subscriberId:', subscriberId);
+
+    // Step 3: Send Flow
+    if (subscriberId) {
+      const flowRes = await fetch('https://api.manychat.com/fb/sending/sendFlow', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          subscriber_id: subscriberId,
+          flow_ns: 'content20260309090937_600499',
+        }),
+      });
+      const flowText = await flowRes.text();
+      console.log('sendFlow response:', flowRes.status, flowText);
+    } else {
+      console.log('No subscriber_id found, skipping sendFlow');
+    }
+
+    return new Response(JSON.stringify({ success: true, data: createData }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
