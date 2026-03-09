@@ -31,7 +31,13 @@ serve(async (req) => {
       }),
     });
 
-    const data = await response.json();
+    const responseText = await response.text();
+    let data;
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      throw new Error(`ManyChat returned non-JSON [${response.status}]: ${responseText.substring(0, 200)}`);
+    }
 
     if (!response.ok) {
       throw new Error(`ManyChat API error [${response.status}]: ${JSON.stringify(data)}`);
