@@ -14,7 +14,7 @@ const LeadForm = () => {
 
   const sendToManyChat = async (name: string, phone: string) => {
     try {
-      await supabase.functions.invoke('send-to-manychat', {
+      await supabase.functions.invoke('manychat-webhook', {
         body: { name, phone },
       });
     } catch (error) {
