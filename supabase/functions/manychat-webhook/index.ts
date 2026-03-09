@@ -57,9 +57,13 @@ serve(async (req) => {
       if (msg.includes('already exists')) {
         // Try findBySystemField to get subscriber_id
         try {
+          const searchPhone = formattedPhone.startsWith('+') ? formattedPhone : `+${formattedPhone}`;
           const findRes = await fetch(
-            `https://api.manychat.com/fb/subscriber/findBySystemField?field=phone&value=${encodeURIComponent(formattedPhone)}`,
-            { headers: { 'Authorization': `Bearer ${MANYCHAT_API_KEY}` } }
+            `https://api.manychat.com/fb/subscriber/findBySystemField?field=phone&value=${encodeURIComponent(searchPhone)}`,
+            {
+              method: 'GET',
+              headers: { 'Authorization': `Bearer ${MANYCHAT_API_KEY}` },
+            }
           );
           const findText = await findRes.text();
           console.log('findBySystemField response:', findRes.status, findText.substring(0, 300));
