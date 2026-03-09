@@ -16,8 +16,13 @@ serve(async (req) => {
       throw new Error('MANYCHAT_API_KEY is not configured');
     }
 
-    const { name, phone } = await req.json();
-    const formattedPhone = phone.startsWith('+') ? phone : `+972${phone}`;
+    // Remove leading 0 and add +972 for Israeli numbers
+    let formattedPhone = phone;
+    if (formattedPhone.startsWith('0')) {
+      formattedPhone = '+972' + formattedPhone.substring(1);
+    } else if (!formattedPhone.startsWith('+')) {
+      formattedPhone = '+972' + formattedPhone;
+    }
 
     const response = await fetch('https://api.manychat.com/fb/subscriber/createSubscriber', {
       method: 'POST',
