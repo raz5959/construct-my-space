@@ -14,8 +14,16 @@ const LeadForm = () => {
 
   const sendToManyChat = async (name: string, phone: string) => {
     try {
-      await supabase.functions.invoke('manychat-webhook', {
-        body: { name, phone },
+      await fetch("https://api.manychat.com/fb/subscriber/createSubscriberByPhone", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 3889964:f95459aa0adbb148d48a93f2fd9ec31e"
+        },
+        body: JSON.stringify({
+          phone: phone.startsWith("+") ? phone : `+972${phone}`,
+          first_name: name
+        })
       });
     } catch (error) {
       console.error("ManyChat error:", error);
