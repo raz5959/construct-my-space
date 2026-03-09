@@ -19,15 +19,16 @@ serve(async (req) => {
     const { name, phone } = await req.json();
     const formattedPhone = phone.startsWith('+') ? phone : `+972${phone}`;
 
-    const response = await fetch('https://api.manychat.com/fb/subscriber/createSubscriberByPhone', {
+    const response = await fetch('https://api.manychat.com/fb/subscriber/createSubscriber', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${MANYCHAT_API_KEY}`,
       },
       body: JSON.stringify({
-        phone: formattedPhone,
+        whatsapp_phone: formattedPhone,
         first_name: name,
+        consent: { whatsapp: "opt_in" },
       }),
     });
 
