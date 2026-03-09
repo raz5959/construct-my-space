@@ -16,6 +16,7 @@ serve(async (req) => {
       throw new Error('MANYCHAT_API_KEY is not configured');
     }
 
+    const { name, phone } = await req.json();
     // Remove leading 0 and add +972 for Israeli numbers
     let formattedPhone = phone;
     if (formattedPhone.startsWith('0')) {
