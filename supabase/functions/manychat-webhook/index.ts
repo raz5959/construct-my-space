@@ -58,7 +58,7 @@ serve(async (req) => {
         // Try findBySystemField to get subscriber_id
         try {
           const findRes = await fetch(
-            `https://api.manychat.com/fb/subscriber/findBySystemField?field=whatsapp_phone&value=${encodeURIComponent(formattedPhone)}`,
+            `https://api.manychat.com/fb/subscriber/findBySystemField?field=phone&value=${encodeURIComponent(formattedPhone)}`,
             { headers: { 'Authorization': `Bearer ${MANYCHAT_API_KEY}` } }
           );
           const findText = await findRes.text();
