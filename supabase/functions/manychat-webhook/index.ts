@@ -55,19 +55,25 @@ serve(async (req) => {
     } else if (!response.ok) {
       const msg = JSON.stringify(data);
       if (msg.includes('already exists')) {
-        // Extract subscriber ID: find by phone
-        const findRes = await fetch(
-          `https://api.manychat.com/fb/subscriber/findBySystemField?field=whatsapp_phone&value=${encodeURIComponent(formattedPhone)}`,
-          {
-            headers: { 'Authorization': `Bearer ${MANYCHAT_API_KEY}` },
-          }
-        );
-        const findData = await findRes.json();
-        subscriberId = findData?.data?.id ? String(findData.data.id) : null;
+        // Try findBySystemField to get subscriber_id
+        try {
+          const findRes = await fetch(
+            `https://api.manychat.com/fb/subscriber/findBySystemField?field=whatsapp_phone&value=${encodeURIComponent(formattedPhone)}`,
+            { headers: { 'Authorization': `Bearer ${MANYCHAT_API_KEY}` } }
+          );
+          const findText = await findRes.text();
+          console.log('findBySystemField response:', findRes.status, findText.substring(0, 300));
+          const findData = JSON.parse(findText);
+          subscriberId = findData?.data?.id ? String(findData.data.id) : null;
+        } catch (e) {
+          console.error('findBySystemField failed:', e);
+        }
       } else {
         throw new Error(`ManyChat API error [${response.status}]: ${msg}`);
       }
     }
+
+    console.log('subscriberId:', subscriberId);
 
     // Send Flow to subscriber
     if (subscriberId) {
