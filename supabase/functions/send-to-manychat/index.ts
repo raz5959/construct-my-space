@@ -47,7 +47,13 @@ serve(async (req) => {
     }
 
     if (!response.ok) {
-      throw new Error(`ManyChat API error [${response.status}]: ${JSON.stringify(data)}`);
+      // "already exists" means subscriber is already in ManyChat — treat as success
+      const isAlreadyExists = data?.details?.messages?.wa_id?.message?.some(
+        (m: string) => m.includes('already exists')
+      );
+      if (!isAlreadyExists) {
+        throw new Error(`ManyChat API error [${response.status}]: ${JSON.stringify(data)}`);
+      }
     }
 
     return new Response(JSON.stringify({ success: true, data }), {
