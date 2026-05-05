@@ -30,10 +30,6 @@ const HeroSection = () => {
             איך זה עובד
           </a>
         </div>
-
-        <div className="text-xs text-muted mt-4 font-mono tracking-wide">
-          ללא התחייבות <span className="mx-1.5 text-line-2">·</span> תוכן לימודי <span className="mx-1.5 text-line-2">·</span> מתאים לסוחרים שרוצים לעבוד מסודר
-        </div>
       </div>
 
       {/* Right column: visual + form */}
