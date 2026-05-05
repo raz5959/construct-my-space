@@ -1,4 +1,5 @@
 import LeadForm from "./LeadForm";
+import tradingOffice from "@/assets/trading-office.png";
 
 const HeroSection = () => {
   return (
@@ -55,8 +56,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Form card */}
-      <LeadForm />
+      {/* Right column: visual + form */}
+      <div>
+        <div className="hero-visual">
+          <img src={tradingOffice} alt="0DTE LAB trading room" loading="lazy" />
+        </div>
+        <LeadForm />
+      </div>
     </section>
   );
 };
