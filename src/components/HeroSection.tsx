@@ -44,14 +44,14 @@ const HeroSection = () => {
           </a>
           <a
             href="#problem"
-            className="px-5 py-4 rounded-lg font-semibold text-sm text-muted-foreground border border-border-2 transition-all hover:text-foreground"
+            className="px-5 py-4 rounded-lg font-semibold text-sm text-muted-foreground border border-line-2 transition-all hover:text-foreground"
           >
             איך זה עובד
           </a>
         </div>
 
         <div className="text-xs text-muted mt-4 font-mono tracking-wide">
-          ללא התחייבות <span className="mx-1.5 text-border-2">·</span> תוכן לימודי <span className="mx-1.5 text-border-2">·</span> מתאים לסוחרים שרוצים לעבוד מסודר
+          ללא התחייבות <span className="mx-1.5 text-line-2">·</span> תוכן לימודי <span className="mx-1.5 text-line-2">·</span> מתאים לסוחרים שרוצים לעבוד מסודר
         </div>
       </div>
 

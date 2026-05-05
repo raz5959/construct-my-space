@@ -50,8 +50,8 @@ const LeadForm = () => {
         <span>// LAB ACCESS</span>
         <div className="flex gap-1.5">
           <span className="w-2 h-2 rounded-full bg-primary glow-primary" />
-          <span className="w-2 h-2 rounded-full bg-border-2" />
-          <span className="w-2 h-2 rounded-full bg-border-2" />
+          <span className="w-2 h-2 rounded-full bg-line-2" />
+          <span className="w-2 h-2 rounded-full bg-line-2" />
         </div>
       </div>
 
@@ -74,7 +74,7 @@ const LeadForm = () => {
               placeholder="שם מלא"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-3.5 bg-bg-2 border border-border-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
             />
             <input
               type="email"
@@ -82,7 +82,7 @@ const LeadForm = () => {
               dir="ltr"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3.5 bg-bg-2 border border-border-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
             />
             <input
               type="tel"
@@ -90,7 +90,7 @@ const LeadForm = () => {
               dir="ltr"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full p-3.5 bg-bg-2 border border-border-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
             />
             <button
               type="submit"
