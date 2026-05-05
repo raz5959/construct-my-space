@@ -124,3 +124,31 @@
     box-shadow: 0 0 8px hsl(var(--primary));
   }
 }
+
+.hero-visual {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: contrast(1.04) saturate(0.92) brightness(0.9);
+}
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.42) 100%),
+    radial-gradient(circle at 50% 30%, rgba(61,240,168,0.10), transparent 55%);
+  pointer-events: none;
+}
