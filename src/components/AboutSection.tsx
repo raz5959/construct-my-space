@@ -26,7 +26,7 @@ const AboutSection = () => {
 
           <div>
             <h3 className="text-sm accent-text font-mono tracking-[0.18em] uppercase mb-4">§ 04 · מי עומד מאחורי</h3>
-            <h2 className="text-[30px] md:text-[46px] font-extrabold leading-[1.1] mb-5 tracking-tight">
+            <h2 className="text-[28px] md:text-[40px] font-extrabold leading-[1.1] mb-5 tracking-tight">
               0DTE LAB.
               <br />
               מעבדה לסוחרים שמאסו ברעש.

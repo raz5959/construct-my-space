@@ -9,7 +9,7 @@ const HeroSection = () => {
           קורס חינמי לגמרי · ללא עלות · ללא מכירה בסוף
         </span>
 
-        <h1 className="text-[42px] sm:text-5xl md:text-[76px] font-extrabold leading-[1.02] tracking-tight my-6 text-balance">
+        <h1 className="text-[36px] md:text-[56px] font-extrabold leading-[1.02] tracking-tight my-6 text-balance">
           תפסיק לסחור <span className="strike-danger">בניחוש</span>.
           <br />
           תתחיל לסחור <span className="accent-text">לפי נתונים.</span>

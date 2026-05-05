@@ -17,7 +17,7 @@ const FAQSection = () => {
           <span className="w-7 h-px bg-primary" />
           § 07 · שאלות נפוצות
         </div>
-        <h2 className="text-[34px] md:text-[56px] font-extrabold leading-[1.05] tracking-tight mb-12">FAQ.</h2>
+        <h2 className="text-[30px] md:text-[44px] font-extrabold leading-[1.05] tracking-tight mb-12">FAQ.</h2>
 
         <div className="grid">
           {faqs.map((f, i) => {

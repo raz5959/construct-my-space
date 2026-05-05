@@ -49,7 +49,7 @@ const FinalCTA = () => {
             0DTE LAB
             <span className="accent-text mr-1.5">FREE ACCESS</span>
           </span>
-          <h2 className="relative text-[34px] md:text-[54px] font-extrabold leading-[1.1] mb-5 tracking-tight text-balance">
+          <h2 className="relative text-[30px] md:text-[44px] font-extrabold leading-[1.1] mb-5 tracking-tight text-balance">
             אם אתה מרגיש שהמסחר שלך
             <br />
             צריך יותר <em className="not-italic accent-text">סדר —</em> זה המקום להתחיל.

@@ -15,7 +15,7 @@ const PositioningSection = () => {
             <span className="w-7 h-px bg-primary" />
             § 03 · עמדה
           </div>
-          <h2 className="text-[28px] md:text-[42px] font-bold leading-[1.25] mb-6 max-w-[880px] tracking-tight relative">
+          <h2 className="text-[26px] md:text-[36px] font-bold leading-[1.25] mb-6 max-w-[880px] tracking-tight relative">
             זה לא קורס שמבטיח לך{" "}
             <span className="text-destructive line-through">כסף</span>.
             <br />
