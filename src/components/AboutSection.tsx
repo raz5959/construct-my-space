@@ -41,16 +41,6 @@ const AboutSection = () => {
             <p className="text-base text-muted-foreground leading-[1.8] mb-3.5 max-w-[560px]">
               0DTE LAB נבנה לסוחרים שמחפשים דרך ברורה, מובנית ומקצועית לגשת לשוק — בלי קבוצות טלגרם, בלי דרמה.
             </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              {tags.map((t) => (
-                <span
-                  key={t}
-                  className="font-mono text-[11px] text-muted-foreground px-3 py-1.5 border border-border rounded-full tracking-wide"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
