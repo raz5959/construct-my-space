@@ -22,6 +22,7 @@ const Index = () => {
           <HeroSection />
           <ProblemSection />
           <BenefitsSection />
+          <VisualDivider />
           <PositioningSection />
           <AboutSection />
           <ForWhomSection />
