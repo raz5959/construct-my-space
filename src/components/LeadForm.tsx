@@ -1,154 +1,113 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
 const LeadForm = () => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  
   const [email, setEmail] = useState("");
-  const [agreed, setAgreed] = useState(true);
+  const [phone, setPhone] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async () => {
-    if (!name.trim() || !phone.trim()) {
-      toast({ title: "שגיאה", description: "נא למלא שם וטלפון", variant: "destructive" });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim() || !email.trim()) {
+      toast({ title: "שגיאה", description: "נא למלא את כל השדות", variant: "destructive" });
       return;
     }
-    if (!agreed) {
-      toast({ title: "שגיאה", description: "נא לאשר את תנאי השירות", variant: "destructive" });
-      return;
-    }
-
     setIsSubmitting(true);
     const { error } = await supabase.from("leads").insert({
       name: name.trim(),
       phone: phone.trim(),
-      
       email: email.trim() || null,
     });
     setIsSubmitting(false);
-
     if (error) {
       toast({ title: "שגיאה", description: "משהו השתבש, נסו שוב", variant: "destructive" });
       return;
     }
-
     setIsSubmitted(true);
-    toast({ title: "נשלח בהצלחה! 🎉", description: "ההדרכה תישלח אליכם בקרוב" });
+    toast({ title: "נשלח ✓", description: "תקבלו את הקורס לאימייל בקרוב" });
   };
 
-  if (isSubmitted) {
-    return (
-      <motion.section
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="mx-5 mb-7"
-      >
-        <div className="bg-card border-2 border-primary/20 rounded-2xl p-8 text-center shadow-[0_0_40px_-10px_hsl(210_90%_55%/0.3)]">
-          <div className="text-5xl mb-4">🎉</div>
-          <h3 className="font-heading text-xl font-black mb-2 gold-gradient-text">תודה שנרשמתם!</h3>
-          <p className="text-sm text-muted-foreground">ההדרכה תישלח אליכם בקרוב</p>
-        </div>
-      </motion.section>
-    );
-  }
-
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" }}
-      className="mx-5 mb-7"
+    <aside
+      id="cta"
+      className="bg-gradient-to-b from-card to-bg-2 border border-border rounded-2xl p-7 relative overflow-hidden"
     >
-      <div className="bg-card border-2 border-primary/20 rounded-2xl p-6 relative overflow-hidden shadow-[0_0_40px_-10px_hsl(210_90%_55%/0.3)]">
-        {/* Gradient top bar */}
-        <div className="absolute top-0 right-0 left-0 h-1 gold-gradient-bg" />
-        
-        {/* Corner glow accents */}
-        <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+      {/* inner grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-100"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
-        {/* Header */}
-        <div className="text-center mb-5 relative">
-          <h3 className="font-heading text-xl font-black mb-1.5 gold-gradient-text">
-            קבלו גישה להדרכה בחינם!
-          </h3>
-          <p className="text-xs text-muted-foreground">
-            השאירו פרטים וההדרכה תישלח מיד
-          </p>
+      {/* card head */}
+      <div className="flex justify-between items-center pb-4 border-b border-border font-mono text-[11px] text-muted tracking-[0.18em] uppercase relative z-10">
+        <span>// LAB ACCESS</span>
+        <div className="flex gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-primary glow-primary" />
+          <span className="w-2 h-2 rounded-full bg-line-2" />
+          <span className="w-2 h-2 rounded-full bg-line-2" />
         </div>
+      </div>
 
-        {/* Fields */}
-        <div className="space-y-3 relative">
-          <div>
-            <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">שם מלא</label>
+      {isSubmitted ? (
+        <div className="relative z-10 py-10 text-center">
+          <div className="text-5xl mb-4">✓</div>
+          <h3 className="text-xl font-bold mb-2 accent-text">נרשמת בהצלחה</h3>
+          <p className="text-sm text-muted-foreground">תקבל את הקורס לאימייל בקרוב.</p>
+        </div>
+      ) : (
+        <>
+          <div className="text-[22px] font-bold mt-5 mb-1.5 relative z-10">קבלו גישה לקורס.</div>
+          <p className="text-[13px] text-muted-foreground mb-5 relative z-10">
+            השאירו פרטים — תקבלו את החומר ישירות לאימייל ולוואטסאפ.
+          </p>
+
+          <form onSubmit={handleSubmit} className="relative z-10 space-y-3.5">
             <input
               type="text"
-              placeholder="איך קוראים לכם?"
+              placeholder="שם מלא"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
             />
-          </div>
-
-          <div>
-              <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">טלפון</label>
-              <input
-                type="tel"
-                placeholder="050-000-0000"
-                dir="ltr"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
-              />
-          </div>
-
-          <div>
-            <label className="block text-[11px] font-semibold text-muted-foreground mb-1.5">אימייל</label>
             <input
               type="email"
-              placeholder="your@email.com"
+              placeholder="אימייל"
               dir="ltr"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-secondary/50 border border-foreground/30 rounded-xl text-foreground text-sm placeholder:text-muted-foreground/50 font-body focus:outline-none focus:border-foreground/60 focus:ring-1 focus:ring-foreground/20 transition-all"
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
             />
-          </div>
-        </div>
-
-        {/* Checkbox */}
-        <div className="flex items-start gap-2 my-3.5 text-[10px] text-muted-foreground leading-relaxed">
-          <input
-            type="checkbox"
-            checked={agreed}
-            onChange={(e) => setAgreed(e.target.checked)}
-            className="w-3.5 h-3.5 accent-primary shrink-0 mt-0.5"
-          />
-          <label>
-            אני מסכים/ה ל
-            <a href="#" className="text-primary hover:underline">תנאי השירות</a>
-          </label>
-        </div>
-
-        {/* Submit button */}
-        <button
-          onClick={handleSubmit}
-          disabled={isSubmitting}
-          className="shimmer pulse-ring w-full py-4 gold-gradient-bg rounded-xl font-heading text-base font-black text-primary-foreground mt-1 tracking-wide disabled:opacity-60"
-        >
-          {isSubmitting ? "שולח..." : "שלחו לי את ההדרכה בחינם!"}
-        </button>
-
-        <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-muted-foreground">
-          <span>🔒 מאובטח</span>
-          <span className="w-px h-3 bg-border" />
-          <span>💬 נשלח לוואטסאפ</span>
-        </div>
-      </div>
-    </motion.section>
+            <input
+              type="tel"
+              placeholder="טלפון / וואטסאפ"
+              dir="ltr"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full p-3.5 bg-bg-2 border border-line-2 rounded-lg text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+            />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-primary text-primary-foreground p-4 rounded-lg font-bold text-[15px] mt-2 transition-all hover:shadow-[0_0_0_4px_rgba(61,240,168,0.18)] disabled:opacity-60"
+            >
+              {isSubmitting ? "שולח..." : "אני רוצה לקבל את הקורס"}
+            </button>
+            <div className="text-[11px] text-muted text-center mt-3.5 font-mono tracking-wide leading-[1.7]">
+              לא נשלח ספאם. ניתן להסיר בכל עת.
+              <br />
+              תוכן לימודי
+            </div>
+          </form>
+        </>
+      )}
+    </aside>
   );
 };
 

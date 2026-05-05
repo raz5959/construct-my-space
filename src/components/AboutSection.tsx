@@ -1,38 +1,55 @@
-import { motion } from "framer-motion";
+const tags = ["OPTIONS", "FUTURES", "STOCKS", "PRICE ACTION", "EXECUTION", "STATISTICAL EDGE", "RISK"];
 
 const AboutSection = () => {
   return (
-    <section className="px-5 py-8 border-t border-foreground/[0.04]">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-center mb-5"
-      >
-        <p className="text-[11px] font-semibold text-primary tracking-widest mb-2">מי אני</p>
-        <h2 className="font-heading text-2xl font-black mb-3">
-          <span className="gold-gradient-text">רז אלקבץ</span>
-        </h2>
-        <p className="text-sm text-muted-foreground leading-7">
-          סוחר במשרה מלאה. הגעתי לתחום מתוך אותו חיפוש של "כסף קל ומהיר" שכולם מכירים — והתרסקתי.
-          הפסדתי מאות אלפי שקלים, יום אחד אפילו 50 אלף ביום אחד. אבל במקום לוותר, הבנתי דבר אחד:
-          <span className="text-foreground font-semibold"> האשם היחיד הוא אני, לא השוק.</span>
-        </p>
-      </motion.div>
+    <section className="py-16 md:py-24 border-t border-border">
+      <div className="max-w-site mx-auto px-5 md:px-7">
+        <div className="grid md:grid-cols-[.9fr_1.1fr] gap-10 md:gap-16 items-center">
+          {/* Portrait placeholder */}
+          <div
+            className="aspect-[4/5] bg-card border border-border rounded-2xl relative overflow-hidden"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,.02) 12px 13px), linear-gradient(180deg, hsl(var(--card-2)) 0%, hsl(var(--background)) 100%)",
+            }}
+          >
+            <span className="absolute left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
+              // OPERATOR
+            </span>
+            <span className="absolute inset-0 grid place-items-center text-muted font-mono text-[11px] tracking-[0.18em] uppercase">
+              RAZ ELKABETS
+            </span>
+            <span className="absolute right-[18px] bottom-[18px] font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+              TRADER
+            </span>
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-        className="bg-card border border-primary/10 rounded-2xl p-5 relative overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 left-0 h-[3px] gold-gradient-bg" />
-        <p className="text-sm text-foreground/90 leading-7 text-center italic">
-          "מסחר זה המקצוע האולטימטיבי לטוב ולרע — הוא יאתגר אותך, ישבור אותך, ובסוף יבנה אותך מחדש."
-        </p>
-      </motion.div>
+          <div>
+            <h3 className="text-sm accent-text font-mono tracking-[0.18em] uppercase mb-4">§ 04 · מי עומד מאחורי</h3>
+            <h2 className="text-[30px] md:text-[46px] font-extrabold leading-[1.1] mb-5 tracking-tight">
+              0DTE LAB.
+              <br />
+              מעבדה לסוחרים שמאסו ברעש.
+            </h2>
+            <p className="text-base text-muted-foreground leading-[1.8] mb-3.5 max-w-[560px]">
+              רז אלקבץ סוחר למחייתו כבר 6 שנים, פרייס אקשן, משמעת ביצוע וחשיבה סטטיסטית. הגישה שלי? שוק כסביבה הסתברותית, לא כתחזית.
+            </p>
+            <p className="text-base text-muted-foreground leading-[1.8] mb-3.5 max-w-[560px]">
+              0DTE LAB נבנה לסוחרים שמחפשים דרך ברורה, מובנית ומקצועית לגשת לשוק — בלי קבוצות טלגרם, בלי דרמה.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {tags.map((t) => (
+                <span
+                  key={t}
+                  className="font-mono text-[11px] text-muted-foreground px-3 py-1.5 border border-border rounded-full tracking-wide"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

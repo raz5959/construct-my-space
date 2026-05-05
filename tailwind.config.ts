@@ -14,15 +14,21 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Rubik", "sans-serif"],
+        heading: ["Heebo", "sans-serif"],
         body: ["Heebo", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
+      maxWidth: {
+        site: "1240px",
       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "bg-2": "hsl(var(--bg-2))",
         foreground: "hsl(var(--foreground))",
+        "line-2": "hsl(var(--border-2))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

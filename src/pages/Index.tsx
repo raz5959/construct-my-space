@@ -1,25 +1,35 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ProblemSection from "@/components/ProblemSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import PositioningSection from "@/components/PositioningSection";
 import AboutSection from "@/components/AboutSection";
-import StatsSection from "@/components/StatsSection";
-import TruthSection from "@/components/TruthSection";
 import ForWhomSection from "@/components/ForWhomSection";
+import ObjectionsSection from "@/components/ObjectionsSection";
+import FinalCTA from "@/components/FinalCTA";
 import FAQSection from "@/components/FAQSection";
-import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background max-w-md mx-auto relative">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <StatsSection />
-      <TruthSection />
-      <ForWhomSection />
-      <LeadForm />
-      <FAQSection />
-      <Footer />
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none z-0 bg-grid-overlay" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-glow-overlay" />
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <ProblemSection />
+          <BenefitsSection />
+          <PositioningSection />
+          <AboutSection />
+          <ForWhomSection />
+          <ObjectionsSection />
+          <FinalCTA />
+          <FAQSection />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

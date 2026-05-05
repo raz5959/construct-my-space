@@ -1,88 +1,42 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
-  {
-    q: "אני מתחיל לגמרי, זה מתאים לי?",
-    a: "בהחלט. ההדרכה בנויה כך שתבין את היסודות מאפס — בלי ז'רגון מיותר. דווקא מתחילים שלא 'נדבקו' בהרגלים רעים מתקדמים מהר יותר.",
-  },
-  {
-    q: "כמה זמן ביום אצטרך להשקיע?",
-    a: "מסחר יומי הוא מקצוע. אם אתה מחפש 'חצי שעה ביום' — זה לא בשבילך. מי שרציני באמת משקיע שעות של למידה ותרגול. בתמורה — מקבל skill לכל החיים.",
-  },
-  {
-    q: "צריך הון התחלתי גדול?",
-    a: "לא. אפשר להתחיל ולתרגל גם עם סכומים קטנים מאוד, ואפילו בחשבון דמו. החשוב הוא לבנות את היסודות — הכסף יבוא אחר כך.",
-  },
-  {
-    q: "מה ההבדל בין ההדרכה הזו לכל הקורסים האחרים?",
-    a: "אני לא מבטיח 'כסף קל'. אני מספר את האמת — גם כשהיא קשה. ההדרכה מבוססת על שנים של מסחר אמיתי, נפילות אמיתיות ולקחים אמיתיים. לא תיאוריה מויקיפדיה.",
-  },
-  {
-    q: "ההדרכה באמת בחינם?",
-    a: "כן, לחלוטין. בלי קאצ', בלי כרטיס אשראי. רק מוגבל ל-200 הראשונים — אחר כך הרישום נסגר.",
-  },
+  { q: "האם הקורס מתאים למתחילים?", a: "חלקית. הקורס לא מסביר מאפס מה זו אופציה, אבל אם אתה בתחילת הדרך עם רקע בסיסי — תקבל מסגרת חשיבה שתחסוך לך שנים של ניסוי וטעייה." },
+  { q: "האם יש הבטחה לרווח?", a: "לא. אף אחד לא יכול להבטיח רווח בשוק ההון, וכל מי שמבטיח — משקר. הקורס לימודי בלבד." },
+  { q: "למי הקורס מתאים? מסחר באיזה אינסטרומנט?", a: "לכל סוחר שרוצה לעבוד מסודר — אופציות, חוזים, מניות, פורקס, קריפטו. הרעיונות (תהליך, משמעת, expectancy, ניהול סיכון) תקפים בכל אינסטרומנט ובכל שוק." },
+  { q: "האם זה מתאים למי שסוחר חוזים?", a: "כן. הרעיונות — תהליך, משמעת, expectancy, ניהול סיכון — תקפים בכל אינסטרומנט. גם בחוזים, גם בפרייס אקשן." },
+  { q: "מה קורה אחרי שאני משאיר פרטים?", a: "תקבל אימייל עם גישה לקורס. בלי שיחת מכירה אגרסיבית, בלי לחץ. אתה תחליט אם זה בשבילך אחרי שתעבור עליו." },
 ];
 
 const FAQSection = () => {
-  const [open, setOpen] = useState<number | null>(0);
-
+  const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className="px-5 py-8 border-t border-foreground/[0.04]">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-6"
-      >
-        <p className="text-[11px] font-semibold text-primary tracking-widest mb-2">שאלות נפוצות</p>
-        <h2 className="font-heading text-xl font-black">
-          הכל מה שרצית <span className="gold-gradient-text">לדעת</span>
-        </h2>
-      </motion.div>
+    <section className="py-16 md:py-24 border-t border-border">
+      <div className="max-w-[880px] mx-auto px-5 md:px-7">
+        <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-5">
+          <span className="w-7 h-px bg-primary" />
+          § 07 · שאלות נפוצות
+        </div>
+        <h2 className="text-[34px] md:text-[56px] font-extrabold leading-[1.05] tracking-tight mb-12">FAQ.</h2>
 
-      <div className="space-y-2">
-        {faqs.map((f, i) => {
-          const isOpen = open === i;
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-              className="bg-card border border-primary/10 rounded-xl overflow-hidden"
-            >
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-right"
-              >
-                <span className="font-heading font-bold text-sm text-foreground flex-1">{f.q}</span>
-                <span
-                  className={`text-primary text-xl shrink-0 transition-transform ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
-                >
-                  +
-                </span>
-              </button>
-              <AnimatePresence initial={false}>
+        <div className="grid">
+          {faqs.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={i} className="border-b border-border">
+                <button onClick={() => setOpen(isOpen ? null : i)} className="w-full py-6 px-2 flex justify-between items-center gap-6 text-right">
+                  <span className="text-lg font-semibold">{f.q}</span>
+                  <span className={`w-7 h-7 font-mono text-[18px] grid place-items-center transition-all flex-shrink-0 ${isOpen ? "accent-text rotate-45" : "text-muted-foreground"}`}>
+                    +
+                  </span>
+                </button>
                 {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="px-4 pb-4 text-xs text-muted-foreground leading-7">{f.a}</p>
-                  </motion.div>
+                  <div className="px-2 pb-6 text-[15px] text-muted-foreground leading-[1.8] max-w-[780px]">{f.a}</div>
                 )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
