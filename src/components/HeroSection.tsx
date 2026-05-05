@@ -15,21 +15,6 @@ const HeroSection = () => {
           קורס חינמי לסוחרים שרוצים להבין איך לגשת לשוק ההון עם תהליך, סטטיסטיקה ושליטה — בלי הבטחות, בלי קיצורי דרך.
         </p>
 
-        <div className="grid grid-cols-3 border-y border-border mb-9">
-          <div className="py-[18px] px-4 border-l border-border">
-            <div className="font-mono text-[22px] font-semibold text-foreground">FREE</div>
-            <div className="text-xs text-muted mt-1 tracking-wide">פוקוס: מסחר יומי</div>
-          </div>
-          <div className="py-[18px] px-4 border-l border-border">
-            <div className="font-mono text-[22px] font-semibold text-foreground">04</div>
-            <div className="text-xs text-muted mt-1 tracking-wide">Edge · Timing · Risk · Mind</div>
-          </div>
-          <div className="py-[18px] px-4">
-            <div className="font-mono text-[22px] font-semibold text-foreground">100%</div>
-            <div className="text-xs text-muted mt-1 tracking-wide">תוכן לימודי טהור</div>
-          </div>
-        </div>
-
         <div className="flex flex-wrap gap-3 items-center">
           <a
             href="#cta"
