@@ -14,8 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Rubik", "sans-serif"],
+        heading: ["Heebo", "sans-serif"],
         body: ["Heebo", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
+      maxWidth: {
+        site: "1240px",
       },
       colors: {
         border: "hsl(var(--border))",
