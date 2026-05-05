@@ -57,14 +57,11 @@ const HeroSection = () => {
       </div>
 
       {/* Right column: visual + form */}
-      <div className="order-last md:order-none">
-        <div className="hero-visual hidden md:block">
+      <div>
+        <div className="hero-visual">
           <img src={tradingOffice} alt="0DTE LAB trading room" loading="lazy" />
         </div>
         <LeadForm />
-        <div className="hero-visual md:hidden mt-4">
-          <img src={tradingOffice} alt="0DTE LAB trading room" loading="lazy" />
-        </div>
       </div>
     </section>
   );
