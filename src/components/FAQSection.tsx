@@ -11,13 +11,13 @@ const faqs = [
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className="py-16 md:py-24 border-t border-border">
+    <section className="py-20 md:py-28 border-t border-border">
       <div className="max-w-[880px] mx-auto px-5 md:px-7">
         <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-5">
           <span className="w-7 h-px bg-primary" />
           § 07 · שאלות נפוצות
         </div>
-        <h2 className="text-[34px] md:text-[56px] font-extrabold leading-[1.05] tracking-tight mb-12">FAQ.</h2>
+        <h2 className="text-[30px] md:text-[44px] font-extrabold leading-[1.05] tracking-tight mb-12">FAQ.</h2>
 
         <div className="grid">
           {faqs.map((f, i) => {

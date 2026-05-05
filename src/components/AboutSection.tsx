@@ -2,7 +2,7 @@ const tags = ["OPTIONS", "FUTURES", "STOCKS", "PRICE ACTION", "EXECUTION", "STAT
 
 const AboutSection = () => {
   return (
-    <section className="py-16 md:py-24 border-t border-border">
+    <section className="py-20 md:py-28 border-t border-border">
       <div className="max-w-site mx-auto px-5 md:px-7">
         <div className="grid md:grid-cols-[.9fr_1.1fr] gap-10 md:gap-16 items-center">
           {/* Portrait placeholder */}
@@ -26,7 +26,7 @@ const AboutSection = () => {
 
           <div>
             <h3 className="text-sm accent-text font-mono tracking-[0.18em] uppercase mb-4">§ 04 · מי עומד מאחורי</h3>
-            <h2 className="text-[30px] md:text-[46px] font-extrabold leading-[1.1] mb-5 tracking-tight">
+            <h2 className="text-[28px] md:text-[40px] font-extrabold leading-[1.1] mb-5 tracking-tight">
               0DTE LAB.
               <br />
               מעבדה לסוחרים שמאסו ברעש.

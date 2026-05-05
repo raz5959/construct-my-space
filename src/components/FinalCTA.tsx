@@ -29,7 +29,7 @@ const FinalCTA = () => {
 
   return (
     <section
-      className="py-16 md:py-24 border-t border-border"
+      className="py-20 md:py-28 border-t border-border"
       style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)" }}
     >
       <div className="max-w-site mx-auto px-5 md:px-7">
@@ -49,7 +49,7 @@ const FinalCTA = () => {
             0DTE LAB
             <span className="accent-text mr-1.5">FREE ACCESS</span>
           </span>
-          <h2 className="relative text-[34px] md:text-[54px] font-extrabold leading-[1.1] mb-5 tracking-tight text-balance">
+          <h2 className="relative text-[30px] md:text-[44px] font-extrabold leading-[1.1] mb-5 tracking-tight text-balance">
             אם אתה מרגיש שהמסחר שלך
             <br />
             צריך יותר <em className="not-italic accent-text">סדר —</em> זה המקום להתחיל.

@@ -11,7 +11,7 @@ const units = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-16 md:py-24 border-t border-border">
+    <section className="py-20 md:py-28 border-t border-border">
       <div className="max-w-site mx-auto px-5 md:px-7">
         <SectionHeader
           num="§ 02 · מה תקבלו בקורס"

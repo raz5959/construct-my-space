@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none z-0 bg-grid-overlay" />
       <div className="fixed inset-0 pointer-events-none z-0 bg-glow-overlay" />
       <div className="relative z-10">

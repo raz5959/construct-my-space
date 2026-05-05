@@ -9,7 +9,7 @@ const HeroSection = () => {
           קורס חינמי לגמרי · ללא עלות · ללא מכירה בסוף
         </span>
 
-        <h1 className="text-[42px] sm:text-5xl md:text-[76px] font-extrabold leading-[1.02] tracking-tight my-6 text-balance">
+        <h1 className="text-[36px] md:text-[56px] font-extrabold leading-[1.02] tracking-tight my-6 text-balance">
           תפסיק לסחור <span className="strike-danger">בניחוש</span>.
           <br />
           תתחיל לסחור <span className="accent-text">לפי נתונים.</span>
@@ -19,16 +19,16 @@ const HeroSection = () => {
           קורס חינמי לסוחרים שרוצים להבין איך לגשת לשוק ההון עם תהליך, סטטיסטיקה ושליטה — בלי הבטחות, בלי קיצורי דרך.
         </p>
 
-        <div className="grid grid-cols-3 border-t border-b border-border mb-9">
-          <div className="py-[18px] py-[18px] border-l border-border pr-0">
+        <div className="grid grid-cols-3 border-y border-border mb-9">
+          <div className="py-[18px] px-4 border-l border-border">
             <div className="font-mono text-[22px] font-semibold text-foreground">FREE</div>
             <div className="text-xs text-muted mt-1 tracking-wide">פוקוס: מסחר יומי</div>
           </div>
-          <div className="py-[18px] border-l border-border pr-4">
+          <div className="py-[18px] px-4 border-l border-border">
             <div className="font-mono text-[22px] font-semibold text-foreground">04</div>
             <div className="text-xs text-muted mt-1 tracking-wide">Edge · Timing · Risk · Mind</div>
           </div>
-          <div className="py-[18px] pr-4">
+          <div className="py-[18px] px-4">
             <div className="font-mono text-[22px] font-semibold text-foreground">100%</div>
             <div className="text-xs text-muted mt-1 tracking-wide">תוכן לימודי טהור</div>
           </div>
