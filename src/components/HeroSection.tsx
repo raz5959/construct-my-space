@@ -5,11 +5,6 @@ const HeroSection = () => {
   return (
     <section className="max-w-site mx-auto px-5 md:px-7 pt-12 md:pt-20 pb-10 md:pb-16 grid md:grid-cols-[1.15fr_.85fr] gap-10 md:gap-16 items-start">
       <div>
-        <span className="inline-flex items-center gap-2.5 font-mono text-[11px] text-muted-foreground tracking-[0.22em] uppercase px-3.5 py-2 border border-border rounded-full bg-card">
-          <span className="text-primary">● 100% FREE</span>
-          קורס חינמי לגמרי · ללא עלות · ללא מכירה בסוף
-        </span>
-
         <h1 className="text-[36px] md:text-[56px] font-extrabold leading-[1.02] tracking-tight my-6 text-balance">
           תפסיק לסחור <span className="strike-danger">בניחוש</span>.
           <br />
