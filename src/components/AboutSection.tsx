@@ -26,9 +26,6 @@ const AboutSection = () => {
             <span className="absolute left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase z-10">
               // OPERATOR
             </span>
-            <span className="absolute right-[18px] bottom-[18px] font-mono text-[11px] tracking-[0.18em] text-foreground uppercase z-10">
-              RAZ ELKABETS · TRADER
-            </span>
           </div>
 
           <div>
