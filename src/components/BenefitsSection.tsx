@@ -16,7 +16,7 @@ const BenefitsSection = () => {
         <SectionHeader
           num="§ 02 · מה תקבלו בקורס"
           title={<>תוכן מובנה. <em className="not-italic accent-text">אפס סיסמאות.</em></>}
-          sub="הקורס לא מלמד \"איפה לקנות\". הוא מלמד איך לחשוב, איך לסנן, ואיך להחליט — לפני שהגרף בכלל זז."
+          sub={`הקורס לא מלמד "איפה לקנות". הוא מלמד איך לחשוב, איך לסנן, ואיך להחליט — לפני שהגרף בכלל זז.`}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
