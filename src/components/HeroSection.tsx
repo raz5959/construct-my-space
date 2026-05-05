@@ -20,7 +20,7 @@ const HeroSection = () => {
         </p>
 
         <div className="grid grid-cols-3 border-t border-b border-border mb-9">
-          <div className="py-4.5 py-[18px] border-l border-border pr-0">
+          <div className="py-[18px] py-[18px] border-l border-border pr-0">
             <div className="font-mono text-[22px] font-semibold text-foreground">FREE</div>
             <div className="text-xs text-muted mt-1 tracking-wide">פוקוס: מסחר יומי</div>
           </div>

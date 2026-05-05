@@ -13,7 +13,7 @@ const AboutSection = () => {
                 "repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,.02) 12px 13px), linear-gradient(180deg, hsl(var(--card-2)) 0%, hsl(var(--background)) 100%)",
             }}
           >
-            <span className="absolute left-4.5 top-4.5 left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
+            <span className="absolute left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
               // OPERATOR
             </span>
             <span className="absolute inset-0 grid place-items-center text-muted font-mono text-[11px] tracking-[0.18em] uppercase">

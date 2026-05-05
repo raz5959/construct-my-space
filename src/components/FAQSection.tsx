@@ -13,7 +13,7 @@ const FAQSection = () => {
   return (
     <section className="py-16 md:py-24 border-t border-border">
       <div className="max-w-[880px] mx-auto px-5 md:px-7">
-        <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-4.5">
+        <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-5">
           <span className="w-7 h-px bg-primary" />
           § 07 · שאלות נפוצות
         </div>

@@ -9,11 +9,11 @@ const problems = [
 
 const SectionHeader = ({ num, title, sub, children }: { num: string; title?: React.ReactNode; sub?: string; children?: React.ReactNode }) => (
   <>
-    <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-4.5">
+    <div className="font-mono text-[11px] text-muted tracking-[0.22em] uppercase flex items-center gap-3.5 mb-5">
       <span className="w-7 h-px bg-primary" />
       {num}
     </div>
-    {title && <h2 className="text-[34px] md:text-[56px] font-extrabold leading-[1.05] tracking-tight mb-4.5 text-balance max-w-[900px]">{title}</h2>}
+    {title && <h2 className="text-[34px] md:text-[56px] font-extrabold leading-[1.05] tracking-tight mb-5 text-balance max-w-[900px]">{title}</h2>}
     {sub && <p className="text-[17px] text-muted-foreground max-w-[680px] leading-[1.7] mb-12">{sub}</p>}
     {children}
   </>
