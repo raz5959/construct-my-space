@@ -88,7 +88,7 @@ const FinalCTA = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-primary text-primary-foreground px-7 rounded-lg font-bold text-sm transition-all hover:shadow-[0_0_0_4px_rgba(61,240,168,0.18)] disabled:opacity-60"
+                className="bg-primary text-primary-foreground px-8 py-5 rounded-lg font-extrabold text-lg md:text-xl tracking-tight uppercase transition-all hover:shadow-[0_0_0_6px_rgba(61,240,168,0.22)] hover:-translate-y-px disabled:opacity-60 ring-1 ring-primary/40"
               >
                 {loading ? "..." : "קבל גישה ←"}
               </button>
