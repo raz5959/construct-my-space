@@ -1,3 +1,5 @@
+import razPortrait from "@/assets/raz-portrait.png";
+
 const tags = ["OPTIONS", "FUTURES", "STOCKS", "PRICE ACTION", "EXECUTION", "STATISTICAL EDGE", "RISK"];
 
 const AboutSection = () => {
@@ -5,22 +7,27 @@ const AboutSection = () => {
     <section className="py-20 md:py-28 border-t border-border">
       <div className="max-w-site mx-auto px-5 md:px-7">
         <div className="grid md:grid-cols-[.9fr_1.1fr] gap-10 md:gap-16 items-center">
-          {/* Portrait placeholder */}
-          <div
-            className="aspect-[4/5] bg-card border border-border rounded-2xl relative overflow-hidden"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,.02) 12px 13px), linear-gradient(180deg, hsl(var(--card-2)) 0%, hsl(var(--background)) 100%)",
-            }}
-          >
-            <span className="absolute left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
+          {/* Portrait */}
+          <div className="aspect-[4/5] bg-card border border-border rounded-2xl relative overflow-hidden">
+            <img
+              src={razPortrait}
+              alt="רז אלקבץ — סוחר ומייסד 0DTE LAB"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ filter: "contrast(1.04) saturate(0.92) brightness(0.92)" }}
+              loading="lazy"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%), radial-gradient(circle at 50% 25%, rgba(61,240,168,0.10), transparent 55%)",
+              }}
+            />
+            <span className="absolute left-[18px] top-[18px] font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase z-10">
               // OPERATOR
             </span>
-            <span className="absolute inset-0 grid place-items-center text-muted font-mono text-[11px] tracking-[0.18em] uppercase">
-              RAZ ELKABETS
-            </span>
-            <span className="absolute right-[18px] bottom-[18px] font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
-              TRADER
+            <span className="absolute right-[18px] bottom-[18px] font-mono text-[11px] tracking-[0.18em] text-foreground uppercase z-10">
+              RAZ ELKABETS · TRADER
             </span>
           </div>
 
