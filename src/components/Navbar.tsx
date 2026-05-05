@@ -13,17 +13,6 @@ const Navbar = () => {
           </div>
         </a>
 
-        {/* Ticker pills */}
-        <div className="hidden md:flex items-center gap-4 text-xs text-muted-foreground">
-          <div className="flex items-center gap-2 px-2.5 py-1.5 border border-border rounded-full bg-card">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary glow-primary pulse-dot" />
-            <span className="font-mono">TRADING LAB</span>
-          </div>
-          <div className="px-2.5 py-1.5 border border-border rounded-full bg-card font-mono">
-            EDGE · TIMING · DISCIPLINE
-          </div>
-        </div>
-
         <a
           href="#cta"
           className="px-4 py-2.5 border border-primary text-primary text-[13px] font-semibold rounded-md transition-all hover:bg-primary hover:text-primary-foreground"
