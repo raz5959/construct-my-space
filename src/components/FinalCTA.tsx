@@ -29,7 +29,7 @@ const FinalCTA = () => {
 
   return (
     <section
-      className="py-16 md:py-24 border-t border-border"
+      className="py-20 md:py-28 border-t border-border"
       style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)" }}
     >
       <div className="max-w-site mx-auto px-5 md:px-7">

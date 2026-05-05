@@ -23,7 +23,7 @@ export { SectionHeader };
 
 const ProblemSection = () => {
   return (
-    <section id="problem" className="py-16 md:py-24 border-t border-border">
+    <section id="problem" className="py-20 md:py-28 border-t border-border">
       <div className="max-w-site mx-auto px-5 md:px-7">
         <SectionHeader
           num="§ 01 · הבעיה"
